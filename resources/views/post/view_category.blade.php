@@ -17,21 +17,20 @@
                 <th>date</th>
                 <th>Action</th>
             </tr>
-            @foreach($category as $row)
+            
             <tr>
-                <td>{{ $row->id}}</td>
-                <td>{{ $row->name}}</td>
-                <td>{{ $row->slug}}</td>
-                <td>{{ $row->created_at}}</td>
+                <td>{{ $category->id}}</td></td>
+                <td>{{ $category->name}}</td>
+                <td>{{ $category->slug}}</td>
+                <td>{{ $category->created_at}}</td>
                 
                 <td>
-                    <a href="{{ URL::to('edit/category/'.$row->id) }}" class="btn btn-info">Edit</a>
-                    <a href="{{ URL::to('view/category/'.$row->id) }}" class="btn btn-success">View</a>
-                    <a href="{{ URL::to('delete/category/'.$row->id) }}" id="delete" class="btn btn-danger">Delete</a>
+                    <a href="" class="btn btn-info">Edit</a>
+                    <a href="" class="btn btn-danger">Delete</a>
                 </td>
 
             </tr>
-            @endforeach
+           
         </table>
       </div>
     </div>

@@ -24,6 +24,13 @@ Route::get('write/post', 'boloController@writePost')->name('write.post');
 Route::get('all/category', 'boloController@AllCategory')->name('all.category');//all category rotue
 Route::get('add/category', 'boloController@AddCategory')->name('add.category'); //add page category route
 Route::post('store/category', 'boloController@StoreCategory')->name('store.category'); //store category route
+Route::get('view/category/{id}', 'boloController@ViewCategory');//View Category by id
+Route::get('delete/category/{id}', 'boloController@DeleteCategory');//Delete Category by id
+Route::get('edit/category/{id}', 'boloController@EditCategory');//Edit Category by id
+Route::post('update/category/{id}', 'boloController@UpdateCategory');//Update Category by id
+
+
+
 
 
 

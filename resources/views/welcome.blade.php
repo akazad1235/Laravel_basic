@@ -16,6 +16,7 @@
   <!-- Custom fonts for this template -->
   <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.css">
+  <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-sweetalert/1.0.1/sweetalert.min.css">
   <link href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -116,6 +117,7 @@
 
   <!-- Custom scripts for this template -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.1.4/toastr.min.js"></script>
+  <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
   <script src="{{asset('frontend/js/clean-blog.min.js')}}"></script>
  
   <script>
@@ -139,6 +141,28 @@
             break;
     }
   @endif
+  </script>
+  <script>
+    $(document).on("click", "#delete", function(e){
+      e.preventDefault();
+      var link = $(this).attr("href");
+      swal({
+        title:"Are You want to delete",
+        text: "Once Delete, This will be permanently delete!",
+        icon: "warning",
+        buttons: true,
+        dangerMode: true,
+      })
+      .then((willDelete) => {
+        if(willDelete){
+          window.location.href = link;
+
+        }else{
+          swal("Safe Data");
+        }
+      });
+  
+});
   </script>
 </body>
 

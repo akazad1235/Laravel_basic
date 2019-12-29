@@ -34,7 +34,7 @@ class boloController extends Controller
             'alert-type' => 'success'
         );
         
-        return Redirect()->back()->with($notification);
+        return Redirect()->Route('all.category')->with($notification);
       }else{
         $notification  =array(
             'message' => 'Something went wrong',
@@ -50,5 +50,56 @@ class boloController extends Controller
       $category = DB::table('categories')->get();
       
       return view('post.all_category',compact('category'));
+    }
+
+    public function ViewCategory($id)
+    {
+      
+       $category = DB::table('categories')->where('id', $id)->first();
+      return view('post.view_category',compact('category')); 
+    }
+
+    public function DeleteCategory($id)
+    {
+      $category = DB::table('categories')->where('id', $id)->delete();
+      if($category){
+        $notification = array(
+            'message' => 'Successfully category Deleted!',
+            'alert-type' => 'success'
+        );
+        
+        return Redirect()->back()->with($notification);
+      }
+    }
+    public function EditCategory($id)
+    {
+      $category = DB::table('categories')->where('id', $id)->first();   
+      return view('post.update_category', compact('category'));
+
+    }
+    public function UpdateCategory(Request $request, $id){
+      $validatedData = $request->validate([
+        'name' => 'required|max:25| min:4',
+        'slug' => 'required|max:25| min:4',
+        
+    ]);
+        $data = array();
+        $data['name']=$request->name;
+        $data['slug']=$request->slug;
+        $category=DB::table('categories')->where('id', $id)->update($data);
+      if($category){
+        $notification = array(
+            'message' => 'Successfully update Category!',
+            'alert-type' => 'success'
+        );
+        
+        return Redirect()->Route('all.category')->with($notification);
+      }else{
+        $notification  =array(
+            'message' => 'Nothing to Update',
+            'alert-type' => 'error'
+          );
+          return Redirect()->Route('all.category')->with($notification);
+      }
     }
 }

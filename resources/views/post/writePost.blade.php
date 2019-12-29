@@ -49,7 +49,7 @@
           <div class="form-group">
             <button type="submit" class="btn btn-primary" id="sendMessageButton">Send</button>
           </div>
-        </form>
+        </form> 
       </div>
     </div>
 
