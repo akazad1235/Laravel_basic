@@ -18,7 +18,6 @@ Route::get('/', function () {
 Route::get('/about', 'HelloController@About')->name('about');
 Route::get('/contact', 'HelloController@Contact')->name('contact');
 
-Route::get('write/post', 'boloController@writePost')->name('write.post');
 
 //category crud are here
 Route::get('all/category', 'boloController@AllCategory')->name('all.category');//all category rotue
@@ -29,6 +28,16 @@ Route::get('delete/category/{id}', 'boloController@DeleteCategory');//Delete Cat
 Route::get('edit/category/{id}', 'boloController@EditCategory');//Edit Category by id
 Route::post('update/category/{id}', 'boloController@UpdateCategory');//Update Category by id
 
+/*
+|--------------------------------------------------------------------------------
+|post crud are here
+|--------------------------------------------------------------------------------
+|
+|
+*/
+Route::get('write/post', 'postController@writePost')->name('write.post');
+Route::post('store/post', 'postController@StorePost')->name('store.post');
+Route::get('all/post', 'postController@AllPost')->name('all.post');
 
 
 

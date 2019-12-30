@@ -8,10 +8,7 @@ use Illuminate\Support\Facades\DB as FacadesDB;
 
 class boloController extends Controller
 {
-    public function writePost()
-    {
-        return view('post.writePost');
-    }
+   
     public function AddCategory()
     {
         return view('post.add_category');
