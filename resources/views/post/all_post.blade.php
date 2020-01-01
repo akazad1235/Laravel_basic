@@ -6,6 +6,7 @@
         <p>
             <a href="{{ Route('add.category') }}" class="btn btn-danger">Add Category</a>
             <a href="{{ Route('all.category') }}" class="btn btn-info">All Category</a>
+            <a href="{{ Route('write.post') }}" class="btn btn-success">All Category</a>
         </p>
         <hr>
          
