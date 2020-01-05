@@ -14,6 +14,9 @@
 Route::get('/', function () {
     return view('pages/index');
 });
+Route::get('/', 'HelloController@index');
+
+
 
 Route::get('/about', 'HelloController@About')->name('about');
 Route::get('/contact', 'HelloController@Contact')->name('contact');
@@ -38,10 +41,15 @@ Route::post('update/category/{id}', 'boloController@UpdateCategory');//Update Ca
 Route::get('write/post', 'postController@writePost')->name('write.post');   
 Route::post('store/post', 'postController@StorePost')->name('store.post'); //insert post
 Route::get('all/post', 'postController@AllPost')->name('all.post'); //select all post
+
+
+
 Route::get('view/post/{id}', 'postController@ViewPost'); //view single post by id
 Route::get('delete/post/{id}', 'postController@DeltePost'); //delete post by id
 Route::get('edit/post/{id}', 'postController@EditPost'); //Edit post by id
 Route::post('update/post/{id}', 'postController@UpdatePost'); //Edit post by id
+
+
 
 
 
